@@ -1,28 +1,30 @@
 
 <?php include'includes/header.php'; ?>
+<?php 
 
-<?php  
+session_start();
 
-$mysqli = new mysqli('localhost', 'root', '', 'tvshows') or die(mysqli_error($mysqli));
+
+
+$con = mysqli_connect('localhost','root', '');
+
+mysqli_select_db($con, 'serial');
+
 
 if (isset($_POST['create'])){
-   
     $title = $_POST['tittle'];
     $network = $_POST['network'];
     $date = $_POST['date'];
     $description = $_POST['description'];
 
-     $mysqli->query("INSERT INTO `allshow` (tittle, network, date, description) VALUES ($title', '$network', '$date', '$description')")
-      or die($mysqli->error);
 
+  
+  $reg = "INSERT INTO `serialet`(title , network, date, description) VALUES ('$title','$network','$date','$description')";
 
-      
- 
-
-      
-}
+  $result = mysqli_query($con, $reg);
 
 ?>
+
 
 
 
@@ -45,7 +47,7 @@ if (isset($_POST['create'])){
       
     <form action="index.php" method="POST">
     <div class="form-group">
-    <label for="tittle">Titte</label>
+    <label for="title">Titte</label>
     <input type="text" class="form-control" name="tittle" >
   </div>
   <div class="form-row">
@@ -73,4 +75,3 @@ if (isset($_POST['create'])){
         </div>
     </div>
 </section>
-
