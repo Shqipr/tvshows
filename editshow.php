@@ -1,30 +1,30 @@
 <?php include'includes/header.php'; ?>
 
-<?php  
 
-$mysqli = new mysqli('localhost', 'root', '', 'register') or die(mysqli_error($mysqli));
-$id = 0;
-$update = false;
-$title = '';
-$vend = '';
-$date = '';
-$description = '';
+<?php 
 
-if (isset($_GET['update'])){
-    $id = $_GET['update'];
-    $update = true;
-    $_result = $mysqli->query("SELECT FROM `show` WHERE id=$id") or die($mysqli->error());
-    if (count($_result)==1){
-        $row = $result->fetch_array();
-    $title = $_POST['title'];
-    $vend = $_POST['vendi'];
-    $date = $_POST['date'];
-    $description = $_POST['description'];
+$mysqli = new mysqli('localhost', 'root', '', 'tv_shows') or die(mysqli_error($mysqli));
+if(isset($_GET['edit'])){
+    
+    $id = $_GET['edit'];
+    while($row=mysqli_fetch_assoc($result)){
 
-     
-    header ('location:editshow.php');
+        $id = $row['id'];
+        $title = $row['title'];
+        $vend = $row['vendi'];
+        $date = $row['date'];
+        $description = $row['description'];
     }
+
+
 }
+
+require_once("editshow.php");
+
+$query = "select * from show where id='".$id."'";
+$result = mysqli_query($con, $query);
+
+
 
 
 
@@ -47,32 +47,32 @@ if (isset($_GET['update'])){
         <div class="row">
 
       
-    <form action="index.php" method="POST">
+    <form action="editshow.php" method="POST">
     <div class="form-group">
     <label for="title">Titte</label>
-    <input type="text" class="form-control" name="title" >
+    <input type="text" class="form-control" name="title" value="<?php echo $title ?>" >
   </div>
   <div class="form-row">
     <div class="form-group col">
       <label for="inputEmail4">Network</label>
-      <input type="text" class="form-control" name="vendi" >
+      <input type="text" class="form-control" name="vendi" value="<?php echo $vend ?>" >
     </div>
     <div class="form-group col">
       <label for="inputPassword4">Release Data</label>
-      <input type="date" class="form-control" name="date">
+      <input type="date" class="form-control" name="date" value="<?php echo $vend ?>" >
     </div>
   </div>
  
   <div class="form-group">
     <label for="inputAddress2">Description </label>
-    <textarea type="text" class="form-control" name="description"></textarea>
+    <textarea type="text" class="form-control" name="description" value="<?php echo $description ?>"></textarea>
   </div>
   <div class="form-row">
     
   <div class="form-group">
    
   </div>
-  <button type="create" name="send" class="btn btn-secondary"><a href="users.php?update=<?php echo $row['id']; ?>">Update </button>
+  <button type="create" name="update" class="btn btn-secondary"><a href="editshow.php?update=<?php echo $row['id']; ?>">Update </button>
 </form>
         </div>
     </div>

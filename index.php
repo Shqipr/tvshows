@@ -12,7 +12,7 @@ if (isset($_POST['send'])){
     $description = $_POST['description'];
 
 
-    $mysqli->query("INSERT INTO `show` (title, vendi, date, description) VALUES ('$title', '$vendi', '$date', '$description')")
+    $mysqli->query("INSERT INTO `show` (title, vendi, date, description) VALUES ('$title', '$vend', '$date', '$description')")
       or die($mysqli->error);
       
       header ('location:index.php');

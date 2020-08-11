@@ -50,7 +50,7 @@ function pre_r( $array ) {
             <td><?php echo $row['date']; ?></td>
             <td><?php echo $row['description']; ?></td>
             <td>
-                <a href="editshow.php?GetID=<?php echo $row['id']; ?>"
+                <a href="editshow.php?edit=<?php echo $row['id']; ?>"
                     class="btn btn-primary">Edit</a>
                     <a href="allshow.php?delete=<?php echo $row['id']; ?>"
                     class="btn btn-danger">Delete</a>
@@ -62,6 +62,7 @@ function pre_r( $array ) {
         <?php endwhile ?>
 </table>
 
+<button class="btn btn-info"><a class="text-light" href="index.php">Add a New Show</a></button>
 </div>
 </div>
 </section>
