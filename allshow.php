@@ -28,11 +28,12 @@ function pre_r( $array ) {
 <div class="container p-3">
 <div class="row">
 <div class="text-center text-success">
-    <h2>Messages</h2>
+    <h2>All Shows</h2>
 </div>
 <table  class="table table-striped ">
     <thead>
         <tr >
+            <th >ID</th>
             <th >Title</th>
             <th>Newtorks</th>
             <th>Release Data</th>
@@ -43,16 +44,17 @@ function pre_r( $array ) {
     <?php 
         while ($row = $result->fetch_assoc()): ?>
         <tr>
+            <td><?php echo $row['id']; ?></td>
             <td><?php echo $row['title']; ?></td>
             <td><?php echo $row['vendi']; ?></td>
             <td><?php echo $row['date']; ?></td>
             <td><?php echo $row['description']; ?></td>
             <td>
-                <a href="proccess.php?edit=<?php echo $row['id']; ?>"
+                <a href="editshow.php?GetID=<?php echo $row['id']; ?>"
                     class="btn btn-primary">Edit</a>
                     <a href="allshow.php?delete=<?php echo $row['id']; ?>"
                     class="btn btn-danger">Delete</a>
-                    <a href="proccess.php?show=<?php echo $row['id']; ?>"
+                    <a href="tvshow.php?show=<?php echo $row['id']; ?>"
                     class="btn btn-light">Show</a>
             </td>
         </tr>
