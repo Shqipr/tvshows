@@ -9,7 +9,13 @@ $result = $mysqli->query("SELECT * FROM `show`") or die($mysqli->error);
 //  pre_r($result->fetch_assoc());
 // pre_r($result->fetch_assoc());
 
+if (isset($_GET['delete'])){
+    $id = $_GET['delete'];
+    $mysqli->query("DELETE FROM `show` WHERE id=$id") or die($mysqli->error());
 
+    header ('location:allshow.php');
+
+}
 
 
 function pre_r( $array ) {
@@ -42,11 +48,11 @@ function pre_r( $array ) {
             <td><?php echo $row['date']; ?></td>
             <td><?php echo $row['description']; ?></td>
             <td>
-                <a href="proccess.php?delete=<?php echo $row['id']; ?>"
+                <a href="proccess.php?edit=<?php echo $row['id']; ?>"
                     class="btn btn-primary">Edit</a>
-                    <a href="proccess.php?delete=<?php echo $row['id']; ?>"
+                    <a href="allshow.php?delete=<?php echo $row['id']; ?>"
                     class="btn btn-danger">Delete</a>
-                    <a href="proccess.php?delete=<?php echo $row['id']; ?>"
+                    <a href="proccess.php?show=<?php echo $row['id']; ?>"
                     class="btn btn-light">Show</a>
             </td>
         </tr>
