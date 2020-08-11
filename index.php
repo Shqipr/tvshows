@@ -1,30 +1,23 @@
 
 <?php include'includes/header.php'; ?>
-<?php 
+<?php  
 
-session_start();
+$mysqli = new mysqli('localhost', 'root', '', 'tv_shows') or die(mysqli_error($mysqli));
 
-
-
-$con = mysqli_connect('localhost','root', '');
-
-mysqli_select_db($con, 'serial');
-
-
-if (isset($_POST['create'])){
-    $title = $_POST['tittle'];
-    $network = $_POST['network'];
+if (isset($_POST['send'])){
+   
+    $title = $_POST['title'];
+    $vend = $_POST['vendi'];
     $date = $_POST['date'];
     $description = $_POST['description'];
 
 
-  
-  $reg = "INSERT INTO `serialet`(title , network, date, description) VALUES ('$title','$network','$date','$description')";
-
-  $result = mysqli_query($con, $reg);
+     $mysqli->query("INSERT INTO `show` (title, vendi, date, description) VALUES ('$title', '$vendi', '$date', '$description')")
+      or die($mysqli->error);
+      
+}
 
 ?>
-
 
 
 
@@ -48,12 +41,12 @@ if (isset($_POST['create'])){
     <form action="index.php" method="POST">
     <div class="form-group">
     <label for="title">Titte</label>
-    <input type="text" class="form-control" name="tittle" >
+    <input type="text" class="form-control" name="title" >
   </div>
   <div class="form-row">
     <div class="form-group col">
       <label for="inputEmail4">Network</label>
-      <input type="text" class="form-control" name="network" >
+      <input type="text" class="form-control" name="vendi" >
     </div>
     <div class="form-group col">
       <label for="inputPassword4">Release Data</label>
@@ -70,7 +63,7 @@ if (isset($_POST['create'])){
   <div class="form-group">
    
   </div>
-  <button type="create" name="create" class="btn btn-primary">Create </button>
+  <button type="create" name="send" class="btn btn-primary">Create </button>
 </form>
         </div>
     </div>
