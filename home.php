@@ -23,7 +23,7 @@ function pre_r( $array ) {
 
 
 
-    <section class="p-5" style="background-color:#435E7D;">
+    <section  class="p-5" style="background-color:#435E7D;">
     <div>
         <h2 class="text-light text-bold p-3 text-center">Best Tv Show</h2>
     </div>
@@ -34,7 +34,7 @@ function pre_r( $array ) {
     <?php while ($row = $result->fetch_assoc()): ?>  
     
     <!-- Card -->
-<div class="card card-cascade wider reverse ">
+<div class="card card-cascade wider reverse col-md-4  ">
 
 <!-- Card image -->
 <div class="view view-cascade overlay">
@@ -68,3 +68,6 @@ function pre_r( $array ) {
     
     </div>
     </section>
+
+
+   
