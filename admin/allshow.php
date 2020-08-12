@@ -24,7 +24,9 @@ function pre_r( $array ) {
     echo '</pre>';
 }
 ?>
-<section class=" p-5 ">
+<section style= "background-image:
+    linear-gradient(to bottom, rgba(545, 546, 252, 0.2), rgba(67, 94, 125, 1)),
+    url(''); background-repeat:no repeat; height: 943px; background-size: 100% 100%;" class=" p-5 ">
 <div class="container p-3">
 <div class="row">
 <div class="text-center text-success">
