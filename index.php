@@ -10,9 +10,10 @@ if (isset($_POST['send'])){
     $vend = $_POST['vendi'];
     $date = $_POST['date'];
     $description = $_POST['description'];
+    $file = $_POST['image'];
 
 
-    $mysqli->query("INSERT INTO `show` (title, vendi, date, description) VALUES ('$title', '$vend', '$date', '$description')")
+    $mysqli->query("INSERT INTO `show` (title, vendi, date, description, image) VALUES ('$title', '$vend', '$date', '$description', '$file')")
       or die($mysqli->error);
       
       header ('location:index.php');
@@ -25,7 +26,11 @@ if (isset($_POST['send'])){
 
 <section class="bg-light ">
 <div class="container ">
+<div class="text-right">
+  <button class="btn btn-primary "><a class="text-light" href="allshow.php">Go Back</a></button>
+</div>
 <div class="row">
+
             <div class="text-center">
 
             <h1>Add a New Show</h1>
@@ -53,6 +58,10 @@ if (isset($_POST['send'])){
     <div class="form-group col">
       <label for="inputPassword4">Release Data</label>
       <input type="date" class="form-control" name="date">
+    </div>
+    <div class="form-group col">
+      <label for="image">Chosse image</label>
+      <input type="file" class="form-control" name="name">
     </div>
   </div>
  

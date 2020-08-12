@@ -16,6 +16,9 @@ if(isset($_GET['show'])){
 ?>
 <section>
 <div class="conatiner">
+
+    <button class="btn btn-link"><a href="allshow.php"><-- Go Back</a></button>
+
 <?php 
     while ($row = $result->fetch_assoc()): ?>
         
@@ -34,6 +37,6 @@ if(isset($_GET['show'])){
         </div>
         </div>
    
-   <!-- <?php endwhile ?> -->
+  <?php endwhile ?>
    </div>
    </section>
