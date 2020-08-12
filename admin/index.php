@@ -45,7 +45,7 @@ if (isset($_POST['send'])){
 </section> -->
 <section style="padding: 50px 60px; background-image:
     linear-gradient(to bottom, rgba(545, 546, 252, 0.2), rgba(67, 94, 125, 1)),
-    url('stranger.jpg'); background-repeat:no repeat; height: 943px; background-size: 100% 100%;" class="bg-light">
+    url('images/stranger.jpg'); background-repeat:no repeat; height: 943px; background-size: 100% 100%;" class="bg-light">
     <div class="container">
         <div class="row">
       <div class="col-md-9">
