@@ -10,15 +10,20 @@ if (isset($_POST['send'])){
     $vend = $_POST['vendi'];
     $date = $_POST['date'];
     $description = $_POST['description'];
-    $file = $_FILES['image'];
+    $img =$_FILES =['image'];
 
 
-    $mysqli->query("INSERT INTO `show` (title, vendi, date, description, image) VALUES ('$title', '$vend', '$date', '$description', '$file')")
+    $mysqli->query("INSERT INTO `show` (title, vendi, date, description, image) VALUES ('$title', '$vend', '$date', '$description', '$img')")
       or die($mysqli->error);
-      
+      if(mysqli_query( $mysqli->query)){
+        
+        move_uploaded_file($_FILES['image']['tmp_name'], "uploads/$img");
+
+      }
       header ('location:index.php');
 
 }
+
 
 ?>
 
@@ -55,7 +60,7 @@ if (isset($_POST['send'])){
       <button class="btn btn-light  "><a class="text-dark" href="allshow.php">Go Back</a></button>
       </div>
       
-    <form action="index.php" method="POST">
+    <form action="index.php" method="POST" enctype="multipart/form-data ">
     <div class="form-group text-light">
     <label for="title">Titte</label>
     <input type="text" class="form-control" name="title" >

@@ -85,7 +85,7 @@ function pre_r( $array ) {
     </div>
 
     <div class="container  p-5">
-    <div class="row ">
+    <div class="row d-flex justify-content-center">
     
     <?php while ($row = $result->fetch_assoc()): ?>  
     
