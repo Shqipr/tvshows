@@ -20,13 +20,14 @@ if(isset($_GET['show'])){
     linear-gradient(to bottom, rgba(545, 546, 252, 0.2), rgba(67, 94, 125, 1)),
     url('venom.jpg'); background-repeat:no repeat; height: 943px; background-size: 100% 100%;" class="p-5">
 <div class="conatiner p-5">
+<?php 
+    while ($row = $result->fetch_assoc()): ?>
 <div class="row">
   <div class="col-8">
-  <img class="card-img-top " src="./admin/uploads/<?php echo $row['image']; ?>">
+  <img class="img-thumbnail"  style="width:100%; height:700px;" src="./admin/uploads/<?php echo $row['image']; ?>">
   </div>
   <div class="col-4">
-  <?php 
-    while ($row = $result->fetch_assoc()): ?>
+  
         
         <div class=container>
         <div class="text-light text-right">
