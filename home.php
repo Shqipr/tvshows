@@ -95,7 +95,7 @@ function pre_r( $array ) {
 <!-- Card image -->
 <div class="view view-cascade overlay" >
   <img class="card-img-top " src="./admin/uploads/<?php echo $row['image']; ?>"
-    alt="Card image cap">
+    alt="Card image cap" style="width:100%;height:250px;object-fit:cover">
   <a href="#!">
     <div class="mask rgba-white-slight"></div>
   </a>

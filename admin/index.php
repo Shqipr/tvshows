@@ -34,7 +34,7 @@ if (isset($_POST['send'])){
       //  echo "poban";
       // }
      
-     // header ('location:index.php');
+      header ('location:allshow.php');
 
 }
 
