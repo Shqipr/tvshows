@@ -10,17 +10,31 @@ if (isset($_POST['send'])){
     $vend = $_POST['vendi'];
     $date = $_POST['date'];
     $description = $_POST['description'];
-    $img =$_FILES =['image'];
+
+    $name = $_FILES['file']['name'];
+    $target_dir = "./uploads/";
+    $target_file = $target_dir . basename($_FILES["file"]["name"]);
+
+  
+    // Select file type
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+  
+    // Valid file extensions
+    $extensions_arr = array("jpg","jpeg","png","gif");
+  
+    // Check extension
+    if( in_array($imageFileType,$extensions_arr) ){
+
+       // Upload file
+       move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name);}
 
 
-    $mysqli->query("INSERT INTO `show` (title, vendi, date, description, image) VALUES ('$title', '$vend', '$date', '$description', '$img')")
-      or die($mysqli->error);
-      if(mysqli_query( $mysqli->query)){
-        
-        move_uploaded_file($_FILES['image']['tmp_name'], "uploads/$img");
-
-      }
-      header ('location:index.php');
+    $mysqli->query("INSERT INTO `show` (title, vendi, date, description, image) VALUES ('$title', '$vend', '$date', '$description', '$name')");
+      // if(mysqli_query($mysqli->query)){
+      //  echo "poban";
+      // }
+     
+     // header ('location:index.php');
 
 }
 
@@ -60,7 +74,7 @@ if (isset($_POST['send'])){
       <button class="btn btn-light  "><a class="text-dark" href="allshow.php">Go Back</a></button>
       </div>
       
-    <form action="index.php" method="POST" enctype="multipart/form-data ">
+    <form action="index.php" method="POST" enctype="multipart/form-data">
     <div class="form-group text-light">
     <label for="title">Titte</label>
     <input type="text" class="form-control" name="title" >
@@ -76,7 +90,7 @@ if (isset($_POST['send'])){
     </div>
     <div class="form-group text-light col">
       <label for="image">Chosse image</label>
-      <input type="file" class="form-control" name="image" id="image">
+      <input type="file" class="form-control" name="file" id="image">
     </div>
   </div>
  
