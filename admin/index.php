@@ -1,5 +1,8 @@
 
-<?php include'includes/header.php'; ?>
+<?php include'includesadmin/header.php'; ?>
+
+<?php include'includesadmin/navbar.php'; ?>
+
 <?php  
 
 $mysqli = new mysqli('localhost', 'root', '', 'tv_shows') or die(mysqli_error($mysqli));
@@ -28,13 +31,14 @@ if (isset($_POST['send'])){
        // Upload file
        move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name);}
 
+       
 
     $mysqli->query("INSERT INTO `show` (title, vendi, date, description, image) VALUES ('$title', '$vend', '$date', '$description', '$name')");
       // if(mysqli_query($mysqli->query)){
       //  echo "poban";
       // }
      
-      header ('location:allshow.php');
+      header ('location:homeadmin.php');
 
 }
 
@@ -71,7 +75,7 @@ if (isset($_POST['send'])){
         <h1 class="text-light">ADD NEW SHOWS</h1>
       </div>
       <div class="col-md-3">
-      <button class="btn btn-light  "><a class="text-dark" href="allshow.php">Go Back</a></button>
+      <button class="btn btn-light  "><a class="text-dark" href="homeadmin.php">Go Back</a></button>
       </div>
       
     <form action="index.php" method="POST" enctype="multipart/form-data">
@@ -93,6 +97,10 @@ if (isset($_POST['send'])){
       <input type="file" class="form-control" name="file" id="image">
     </div>
   </div>
+  <div class="form-group text-light col">
+      <label for="image">Chosse Video</label>
+      <input type="file" class="form-control" name="video" id="video">
+    </div>
  
   <div class="form-group text-light">
     <label for="inputAddress2">Description </label>
@@ -108,3 +116,12 @@ if (isset($_POST['send'])){
         </div>
     </div>
 </section>
+
+
+
+<script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>

@@ -1,4 +1,6 @@
-<?php include'includes/header.php'; ?>
+<?php include'includesadmin/header.php'; ?>
+
+<?php include'includesadmin/navbar.php'; ?>
 
 
 <?php 
@@ -77,3 +79,11 @@ $result = mysqli_query($con, $query);
         </div>
     </div>
 </section>
+
+
+<script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
