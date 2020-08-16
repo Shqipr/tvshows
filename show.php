@@ -24,7 +24,7 @@ if(isset($_GET['show'])){
     while ($row = $result->fetch_assoc()): ?>
 <div class="row">
   <div class="col-8">
-  <img class="img-thumbnail"  style="width:100%; height:700px;" src="./admin/uploads/<?php echo $row['image']; ?>">
+ 
   </div>
   <div class="col-4">
   
@@ -41,6 +41,9 @@ if(isset($_GET['show'])){
             <h4><b>Release Date:</b>  <?php echo $row['date']; ?></h4>
             <h4><b>Description:</b>  <?php echo $row['description']; ?></h4>
         <td>
+        <div>
+        <img class="img-thumbnail"  src="./admin/uploads/<?php echo $row['image']; ?>">
+        </div>
         </div>
         </div>
    

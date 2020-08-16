@@ -1,4 +1,6 @@
-<?php include'includes/header.php'; ?>
+<?php include'includesadmin/header.php'; ?>
+
+<?php include'includesadmin/navbar.php'; ?>
 
 <?php 
 
@@ -14,7 +16,7 @@ if(isset($_GET['show'])){
    
 }
 ?>
-<section style="background-image:
+<section  style="background-image:
     linear-gradient(to bottom, rgba(545, 546, 252, 0.2), rgba(67, 94, 125, 1)),
     url(''); background-repeat:no repeat; height: 943px; background-size: 100% 100%;">
 <div class="conatiner p-5">
@@ -64,7 +66,12 @@ if(isset($_GET['show'])){
    </section>
 
 
-
+   <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
 
 
    
