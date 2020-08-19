@@ -38,27 +38,27 @@ function pre_r( $array ) {
 				<div class="carousel-inner">
 					<div class="carousel-item active">
 						<div class="row">
-							<div class="col-sm-3"><div class="img-box"><img src="logo1.png" class="img-fluid" alt="1"></div></div>
-							<div class="col-sm-3"><div class="img-box"><img src="logo1.png" class="img-fluid" alt="2"></div></div>
-							<div class="col-sm-3"><div class="img-box"><img src="logo1.png" class="img-fluid" alt="3"></div></div>
-              <div class="col-sm-3"><div class="img-box"><img src="logo1.png" class="img-fluid" alt="3"></div></div>
+							<div class="col-sm-3"><div class="img-box"><img src="logo1.png" class="img-fluid" alt="1" style="width:100%;height:250px;object-fit:cover"></div></div>
+							<div class="col-sm-3"><div class="img-box"><img src="logo1.png" class="img-fluid" alt="2" style="width:100%;height:250px;object-fit:cover"></div></div>
+							<div class="col-sm-3"><div class="img-box"><img src="logo1.png" class="img-fluid" alt="3" style="width:100%;height:250px;object-fit:cover"></div></div>
+              				<div class="col-sm-3"><div class="img-box"><img src="logo1.png" class="img-fluid" alt="3" style="width:100%;height:250px;object-fit:cover"></div></div>
               
 						</div>
 					</div>
 					<div class="carousel-item">
 						<div class="row">
-							<div class="col-sm-3"><div class="img-box"><img src="logo2.jpg" class="img-fluid" alt=""></div></div>
-							<div class="col-sm-3"><div class="img-box"><img src="logo2.jpg" class="img-fluid" alt=""></div></div>
-							<div class="col-sm-3"><div class="img-box"><img src="logo2.jpg" class="img-fluid" alt=""></div></div>
-              <div class="col-sm-3"><div class="img-box"><img src="logo2.jpg" class="img-fluid" alt=""></div></div>
+							<div class="col-sm-3"><div class="img-box"><img src="logo2.jpg" class="img-fluid" alt="" style="width:100%;height:250px;object-fit:cover"></div></div>
+							<div class="col-sm-3"><div class="img-box"><img src="logo2.jpg" class="img-fluid" alt="" style="width:100%;height:250px;object-fit:cover"></div></div>
+							<div class="col-sm-3"><div class="img-box"><img src="logo2.jpg" class="img-fluid" alt="" style="width:100%;height:250px;object-fit:cover"></div></div>
+              				<div class="col-sm-3"><div class="img-box"><img src="logo2.jpg" class="img-fluid" alt="" style="width:100%;height:250px;object-fit:cover"></div></div>
 						</div>
 					</div>
 					<div class="carousel-item">
 						<div class="row">
-            <div class="col-sm-3"><div class="img-box"><img src="logo1.png" class="img-fluid" alt="1"></div></div>
-							<div class="col-sm-3"><div class="img-box"><img src="logo1.png" class="img-fluid" alt="2"></div></div>
-							<div class="col-sm-3"><div class="img-box"><img src="logo1.png" class="img-fluid" alt="3"></div></div>
-              <div class="col-sm-3"><div class="img-box"><img src="logo1.png" class="img-fluid" alt="3"></div></div>
+           					 <div class="col-sm-3"><div class="img-box"><img src="logo1.png" class="img-fluid" alt="1" style="width:100%;height:250px;object-fit:cover"></div></div>
+							<div class="col-sm-3"><div class="img-box"><img src="logo1.png" class="img-fluid" alt="2" style="width:100%;height:250px;object-fit:cover"></div></div>
+							<div class="col-sm-3"><div class="img-box"><img src="logo1.png" class="img-fluid" alt="3" style="width:100%;height:250px;object-fit:cover"></div></div>
+              				<div class="col-sm-3"><div class="img-box"><img src="logo1.png" class="img-fluid" alt="3" style="width:100%;height:250px;object-fit:cover"></div></div>
 						</div>
 					</div>
 				</div>

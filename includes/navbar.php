@@ -12,15 +12,15 @@
                         <a href="home.php" class="nav-link  active">Tv Show</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link ">ABOUT US</a>
+                        <a href="sugection.php" class="nav-link ">Sugection</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="#" class="nav-link   ">SERVICES</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link ">CONTACT US</a>
                     </li>
-                   
+                    -->
                     
                 </ul>
 

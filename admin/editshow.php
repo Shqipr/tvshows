@@ -2,35 +2,32 @@
 
 <?php include'includesadmin/navbar.php'; ?>
 
-
 <?php 
-
-$mysqli = new mysqli('localhost', 'root', '', 'tv_shows') or die(mysqli_error($mysqli));
 if(isset($_GET['edit'])){
-    
-    $id = $_GET['edit'];
-    while($row=mysqli_fetch_assoc($result)){
-
-        $id = $row['id'];
-        $title = $row['title'];
-        $vend = $row['vendi'];
-        $date = $row['date'];
-        $description = $row['description'];
+  $show_id = $_GET['edit'];
+  $mysqli = new mysqli('localhost', 'root', '', 'tv_shows' ) or die(mysqli_error($mysqli));
+    if(isset($_POST['update']))
+    {
+      $title = $_POST['title'];
+      $vend = $_POST['vendi'];
+      $date = $_POST['date'];
+      $description = $_POST['description'];
+      $sql = "UPDATE `show` SET title = '$title', vendi = '$vend', `date` = '$date', `description` = '$description' WHERE id ='$show_id'";
+     //echo $sql;
+      $mysqli->query($sql) or die($mysqli->error);
     }
-
-
-}
-
-require_once("editshow.php");
-
-$query = "select * from show where id='".$id."'";
-$result = mysqli_query($con, $query);
-
-
-
+  $result = $mysqli->query("SELECT * FROM `show` WHERE id ='$show_id'") or die($mysqli->error);
+  $row = $result -> fetch_assoc();
+ }
 
 
 ?>
+
+
+
+
+
+
 
 <section class="bg-light ">
 <div class="container ">
@@ -49,32 +46,32 @@ $result = mysqli_query($con, $query);
         <div class="row">
 
       
-    <form action="editshow.php" method="POST">
+    <form action="?edit=<?php echo $row['id']; ?>" method="POST">
     <div class="form-group">
     <label for="title">Titte</label>
-    <input type="text" class="form-control" name="title" value="<?php echo $title ?>" >
+    <input type="text" class="form-control" name="title" value="<?php echo $row['title']; ?>" >
   </div>
   <div class="form-row">
     <div class="form-group col">
       <label for="inputEmail4">Network</label>
-      <input type="text" class="form-control" name="vendi" value="<?php echo $vend ?>" >
+      <input type="text" class="form-control" name="vendi" value="<?php echo $row['vendi']; ?>" >
     </div>
     <div class="form-group col">
       <label for="inputPassword4">Release Data</label>
-      <input type="date" class="form-control" name="date" value="<?php echo $vend ?>" >
+      <input type="date" class="form-control" name="date" value="<?php echo $row['date']; ?>" >
     </div>
   </div>
  
   <div class="form-group">
     <label for="inputAddress2">Description </label>
-    <textarea type="text" class="form-control" name="description" value="<?php echo $description ?>"></textarea>
+    <textarea type="text" class="form-control" name="description" value="<?php echo $row['description']; ?>"></textarea>
   </div>
   <div class="form-row">
     
   <div class="form-group">
    
   </div>
-  <button type="create" name="update" class="btn btn-secondary"><a href="editshow.php?update=<?php echo $row['id']; ?>">Update </button>
+  <button type="create" name="update" class="btn btn-secondary">Update </button>
 </form>
         </div>
     </div>

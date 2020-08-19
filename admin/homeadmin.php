@@ -6,6 +6,11 @@
 
 $mysqli = new mysqli('localhost', 'root', '', 'tv_shows' ) or die(mysqli_error($mysqli));
 $result = $mysqli->query("SELECT * FROM `show`") or die($mysqli->error);
+
+$name = "";
+$address = "";
+$id = 0;
+$update = false;
 // // pre_r($result);
 //  pre_r($result->fetch_assoc());
 // pre_r($result->fetch_assoc());
@@ -14,7 +19,7 @@ if (isset($_GET['delete'])){
     $id = $_GET['delete'];
     $mysqli->query("DELETE FROM `show` WHERE id=$id") or die($mysqli->error());
 
-    header ('location:allshow.php');
+    header ('location:homeadmin.php');
 
 }
 
@@ -24,6 +29,19 @@ function pre_r( $array ) {
     print_r($array);
     echo '</pre>';
 }
+?>
+<?php 
+	if (isset($_GET['edit'])) {
+		$id = $_GET['edit'];
+		$update = true;
+		$record = mysqli_query($db, "SELECT * FROM info WHERE id=$id");
+
+		if (count($record) == 1 ) {
+			$n = mysqli_fetch_array($record);
+			$name = $n['name'];
+			$address = $n['address'];
+		}
+	}
 ?>
 <section style= "background-image:
     linear-gradient(to bottom, rgba(545, 546, 252, 0.2), rgba(67, 94, 125, 1)),
@@ -55,7 +73,7 @@ function pre_r( $array ) {
             <td>
                 <a href="editshow.php?edit=<?php echo $row['id']; ?>"
                     class="btn btn-primary">Edit</a>
-                    <a href="allshow.php?delete=<?php echo $row['id']; ?>"
+                    <a href="homeadmin.php?delete=<?php echo $row['id']; ?>"
                     class="btn btn-danger">Delete</a>
                     <a href="tvshow.php?show=<?php echo $row['id']; ?>"
                     class="btn btn-light">Show</a>

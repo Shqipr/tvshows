@@ -24,18 +24,21 @@ if(isset($_GET['show'])){
     while ($row = $result->fetch_assoc()): ?>
 <div class="row">
   <div class="col-8">
- 
+  <video width="750" height="600" controls autoplay>
+    <object data="movie.mp4" width="320" height="240">
+        <embed width="320" height="240"  src="./admin/uploadsvidoe/<?php echo $row['video']; ?>" type="video/mp4">
+    </object>
+  </video>
   </div>
   <div class="col-4">
   
-        
+       
         <div class=container>
         <div class="text-light text-right">
         <h1>Tv Shows</h1>
         </div>
         <div class="text-right text-light">
         <td>
-            <h4 ><b>ID:</b> <?php echo $row['id']; ?></h4>
             <h4><b class="">Title:</b>  <?php echo $row['title']; ?></h4>
             <h4><b>Netwrok:</b> <?php echo $row['vendi']; ?></h4>
             <h4><b>Release Date:</b>  <?php echo $row['date']; ?></h4>

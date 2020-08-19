@@ -20,7 +20,7 @@ if(isset($_GET['show'])){
     linear-gradient(to bottom, rgba(545, 546, 252, 0.2), rgba(67, 94, 125, 1)),
     url(''); background-repeat:no repeat; height: 943px; background-size: 100% 100%;">
 <div class="conatiner p-5">
-<button class="btn btn-light"><a href="allshow.php"><-- Go Back</a></button>
+<button class="btn btn-light"><a href="homeadmin.php"><-- Go Back</a></button>
 <?php 
     while ($row = $result->fetch_assoc()): ?>
 <div class="row">
